@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.model.dao.VoteDataDao">
+	<update id="increaseFirstNum" >
+    	update votedata set first_num=first_num + 1 where voteid = #{id}
+    </update>
+    <update id="increaseSecondNum" >
+    	update votedata set second_num=second_num + 1 where voteid = #{id}
+    </update>
+    <update id="increaseThirdNum" >
+    	update votedata set third_num=third_num + 1 where voteid = #{id}
+    </update>
+      <!-- 更新投票数据 -->
+  <insert id="insertVoteData" useGeneratedKeys="true" keyProperty="dataid" >
+        insert into votedata(first_num, second_num, third_num, four_num, five_num, six_num, voteid) values(0,0,0,0,0,0,#{voteid})
+  </insert>
+  <!--   根据vote_id查找投票 -->
+  <select id="selectVoteId" resultType="com.example.demo.model.bean.VoteData">
+  	select * from votedata where voteid=#{id}
+  </select>
+    <select id="selectAllVote" resultType="com.example.demo.model.bean.VoteData">
+  	select * from votedata
+  </select>
+  <delete id="deleteAllVoteData">
+    	delete from votedata
+    </delete>
+    <delete id="deleteAData">
+    	delete from votedata where voteid = #{id}
+    </delete>
+</mapper>

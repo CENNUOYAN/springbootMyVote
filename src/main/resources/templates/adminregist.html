@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/regist.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    	function regist(){
+    		var adminname = document.getElementById('name').value;
+    		var adminpassword = document.getElementById('password').value;
+    		var surepassword = document.getElementById('surepassword').value;
+    		var obj = {
+    				adminname: adminname,
+    				adminpassword: adminpassword
+    		}
+    		if(adminpassword==surepassword){
+    			$.ajax({
+        			type: 'post',
+        			data: JSON.stringify(obj),
+        			url: '/adminregist',
+        			dataType: 'json',
+        			contentType: "application/json;charset=utf-8",
+        			success: function (result) {
+    		            if (result == 1) {
+    		                alert("注册成功");
+    		            }else if(result == 2){
+    		                alert("密码不能为空");
+    		            }else if(result == 3){
+    		                alert("账号不能为空");
+    		            } else {
+    		                alert("用户名已被注册");
+    		            }
+    		          // response.sendRedict("add");
+    		        },
+    		        error: function (XMLHttpRequest, textStatus, errorThrown) {
+    		            console.log('XMLHttpRequest:');
+    		            console.log(XMLHttpRequest);
+    		            alert('网络异常！尝试刷新网页解决问题')
+    		        } 
+        		});
+    			var span =  document.getElementById('span');
+     			span.style.display = "none";
+     			document.getElementById('password').value="";
+    			document.getElementById('surepassword').value="";
+    		}
+    		else{
+    			var span =  document.getElementById('span');
+    			span.style.display = "block";
+    			document.getElementById('password').value="";
+    			document.getElementById('surepassword').value="";
+    		}
+    		
+    	}
+    </script>
+  </head>
+  <body>
+    <!-- 头部 -->
+    <header>
+      <div class="inner w">
+        <div class="header-title">
+          	投票吧
+        </div>
+        <p>管理员注册</p>
+      </div>
+    </header>
+    <!-- 用户信息部分 -->
+    <div class="main w">
+      <form class="" action>
+        <input type="text" placeholder="请输入用户名" id="name">
+        <input type="password" name="" placeholder="请输入密码" id="password">
+        <input type="password" name="" placeholder="请再次输入密码" id="surepassword">
+        <span id = "span" style="display:none;color:red;margin-bottom:5px; margin-left:18px;">两次输入密码请一致！</span>
+        <div class="checkbox">
+          <input type="checkbox" id="agreement">
+          <label for="agreement">
+            	我已阅读并同意
+            <a href="#">《用户注册协议》</a>
+          </label>
+        </div>
+        <button type="button" name="button" onclick="regist()">
+          <a href="#">注册</a>
+        </button>
+      </form>
+    </div>
+    <!-- footer部分 -->
+    <footer>
+      <span>已有账号？<a href="adminlogin">返回登陆</a></span>
+    </footer>
+  </body>
+</html>

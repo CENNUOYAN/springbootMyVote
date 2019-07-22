@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/votedata.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <!-- <script type="text/javascript">
+      // var aaa = document.getElementById('date');
+      var aaa = $('#date');
+      aaa.on('mouseenter',function(){
+        aaa.show();
+      })
+    </script> -->
+<!--     <script type="text/javascript">
+    	window.onload = function(){
+    		var a = $("#num1").text();
+    		var b = $("#num2").text();
+    		var c = $("#num3").text();
+        	console.log(a+b+c);
+        	var max=0;
+    		if(a>b) {
+    			if(a>c) {
+    				max=a;
+    			}
+    		}
+    		else {
+    			if(b>c) {
+    				max=b;
+    			}
+    			else {
+    				max=c;
+    			}
+    		}
+    		console.log(max);
+    		if(a==max){
+    			$("#num1").css("color","red");
+    		}
+    	}
+    </script> -->
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>
+          <a href="index">菜鸟评选</a>
+        </h1>
+      </div>
+      <div class="top-nav">
+        <ul>
+
+        </ul>
+      </div>
+    </header>
+    <section>
+      <div class="main">
+        <!-- 侧导航栏 -->
+        <div class="sidebar">
+          <div class="sidebar-title">
+            管理列表
+          </div>
+          <div class="sidebar-list">
+            <ul>
+              <li>
+                <i></i>
+                <a href="index">管理首页</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="onvote">新建投票</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="manage">管理投票</a>
+              </li>
+              <li>
+                <span></span>
+                <a class="tubiao" href="personal">账号管理</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 管理首页部分 -->
+        <div class="index-main">
+          <div class="index-title">
+            投票结果
+          </div>
+          <ol>
+            <li>
+              <i></i>
+              <a href="index">管理首页</a>
+              <em></em>
+              <a href="manage">投票列表</a>
+              <em></em>
+              <a class="now-page" href="#">投票结果</a>
+            </li>
+          </ol>
+          <div class="index-content">
+            <div class="notice">
+              投票结果
+            </div>
+            <div class="notice-content">
+              <div class="votecontent">
+                  	  <ul class="item1">
+	                      <li>编号</li>
+	                      <li>标题</li>
+	                      <li>时间</li>
+	                  </ul>
+	                  <ul class="item2" th:if="${vote}!=null" th:each="vote:${vote}">
+		                    <li th:text="${vote.voteId}"></li>
+		                    <li th:text="${vote.voteTitle}"></li>
+		              		<li>
+		                      <span>开始时间:&nbsp&nbsp</span><p th:text="${vote.voteStime}"></p><br />
+		                      <span>结束时间:&nbsp&nbsp</span><p th:text="${vote.voteEtime}"></p>
+		                    </li> 
+	                  </ul>
+                  </div>
+                  <div class="votenum">
+                  	  <ul class="item1">
+	                     <li>投票量1</li>
+	                     <li>投票量2</li>
+	                     <li>投票量3</li>
+	                  </ul>
+	                  <ul class="item2" th:if="${votedata}!=null"  th:each="votedata:${votedata}">
+	                  	<li >
+	                   		<span id="num1" th:text="${votedata.firstNum}"></span><br />
+	                    </li>
+	                    <li>
+	                    	<span id="num2" th:text="${votedata.secondNum}"></span><br />
+	                    </li>
+	                    
+	                    <li>
+	                   		<span id="num3" th:text="${votedata.thirdNum}"></span><br />
+	                    </li>
+	                  </ul>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

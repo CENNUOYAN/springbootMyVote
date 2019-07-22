@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4sk78h');
+  src:  url('../fonts/icomoon.eot?4sk78h#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4sk78h') format('truetype'),
+    url('../fonts/icomoon.woff?4sk78h') format('woff'),
+    url('../fonts/icomoon.svg?4sk78h#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #111;
+}
+li {
+  list-style: none;
+}
+header {
+  width: 1300px;
+  height: 80px;
+  background: #fff;
+  position: relative;
+}
+header .logo {
+  width: 200px;
+  height: 80px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding-left: 30px;
+}
+header .logo a {
+  /* background: blue; */
+  width: 200px;
+  height: 80px;
+  line-height: 80px;
+  display: block;
+  background: url(../images/logo1.png) no-repeat center;
+  text-indent: -9999px;
+}
+section {
+  width: 1340px;
+  height: auto;
+  background: #E9ECF3;
+  padding: 20px 20px;
+}
+.main {
+  width: 1300px;
+  height: auto;
+}
+.main .sidebar {
+  width: 260px;
+  background: #fff;
+  border-radius: 10px;
+  float: left;
+}
+.sidebar-title {
+  padding: 30px 0px 10px 16px;
+  font-size: 13px;
+  color: #5C9ACF;
+}
+/* 图标 */
+.sidebar-list li i {
+  font-family: "icomoon";
+  display: block;
+  float: left;
+  font-size: 16px;
+  font-style: normal;
+  padding-right: 10px;
+}
+.sidebar-list span {
+  float: left;
+  padding-right: 10px;
+}
+.sidebar-list span::before {
+  content: "\e971";
+  font-family: "icomoon";
+}
+.sidebar-list li, .sidebar-list a {
+  /* margin-bottom: 20px; */
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  color: #485a6a;
+}
+.sidebar-list li {
+    padding-left: 16px;
+    font-size: 14px;
+    margin-bottom: 1px;
+}
+.sidebar-list li:hover {
+  background: #f2f6f9;
+  color: #5C9ACF;
+}
+.sidebar-list li:first-child{
+  background: #f2f6f9;
+  color: #5b9bd1 !important;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list li:hover {
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list li:hover i,
+.sidebar-list li:hover span
+ {
+  color: #5C9ACF;
+}
+.sidebar-list li:first-child a{
+  color: #5b9bd1 !important;
+}
+.sidebar-list li:last-child {
+  padding-bottom: 40px;
+}
+
+.index-main {
+  padding-left: 280px;
+  padding-top: 10px;
+  /* background: pink; */
+  width: 1300px;
+  /* position: relative;
+  left: 0px;
+  top: 100px; */
+}
+.index-title {
+  color: #697882;
+  font-size: 22px;
+  /* background: purple; */
+}

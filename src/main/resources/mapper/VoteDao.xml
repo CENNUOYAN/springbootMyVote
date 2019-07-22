@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.model.dao.VoteDao">
+<!-- 	<insert id="add2" useGeneratedKeys="true" keyProperty="id">
+        insert into user(name, password,address) values (#{name},#{password},#{address})
+        insert into vote(vote_title, vote_stime, vote_etime, vote_firstitem, vote_seconditem, vote_thirditem, uid) values 
+        (#{vote.voteTitle},#{vote.voteStime},#{vote.voteEtime},#{vote.voteFirstitem},#{vote.voteSeconditem},#{vote.voteThirditem},#{uid})
+  </insert> -->
+  
+  <!-- 新建投票 -->
+  <insert id="add" useGeneratedKeys="true" keyProperty="voteId" >
+        <!-- insert into user(name, password,address) values (#{name},#{password},#{address}) -->
+        insert into vote(vote_title, vote_stime, vote_etime, vote_firstitem, vote_seconditem, vote_thirditem, vote_uid, firstnum, voterid,secondnum, thirdnum) values 
+        (#{voteTitle},#{voteStime},#{voteEtime},#{voteFirstitem},#{voteSeconditem},#{voteThirditem},#{voteUid},0,#{voterid},0,0)
+  </insert>
+  
+<!--   查找投票 -->
+  <select id="findvote" resultType="com.example.demo.model.bean.Vote">
+  	select * from vote
+  </select>
+  
+  <select id="findAllVote" resultType="com.example.demo.model.bean.Vote">
+  	select * from vote
+  </select>
+  
+<!--   根据vote_id查找投票 -->
+  <select id="selectVoteId" resultType="com.example.demo.model.bean.Vote">
+  	select * from vote where vote_id=#{id}
+  </select>
+  
+  <!--   根据vote_id查找投票返回List -->
+  <select id="selectVoteById" resultType="com.example.demo.model.bean.Vote">
+  	select * from vote where vote_id=#{id}
+  </select>
+  
+<!--   测试 -->
+  <select id="svid" resultType="com.example.demo.model.bean.Vote">
+  	select * from vote where vote_id=#{voteId}
+  </select>
+  
+<!--   修改投票 -->
+   <update id="modifyVote" >
+    	update vote set vote_title=#{voteTitle}, vote_stime=#{voteStime}, vote_etime=#{voteEtime}, vote_firstitem=#{voteFirstitem},
+    	 vote_seconditem=#{voteSeconditem}, vote_thirditem=#{voteThirditem} where vote_id=#{voteId}
+    </update>
+    
+    <!--   修改voterid -->
+   <update id="updateVoterId" >
+    	update vote set voterid=#{voterid} where vote_id=#{voteId}
+    </update>
+    
+    
+    
+<!--     删除投票 -->
+    <delete id="delete">
+    	delete from vote where vote_id = #{id}
+    </delete>
+    
+</mapper>

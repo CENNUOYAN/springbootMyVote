@@ -1,0 +1,179 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4sk78h');
+  src:  url('../fonts/icomoon.eot?4sk78h#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4sk78h') format('truetype'),
+    url('../fonts/icomoon.woff?4sk78h') format('woff'),
+    url('../fonts/icomoon.svg?4sk78h#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.sidebar-list li:first-child{
+  background: #fff;
+  color: #5C9ACF !important;
+  border-left: 3px solid #fff !important;
+}
+.sidebar-list li:nth-child(3){
+  background: #f2f6f9;
+  color: #5b9bd1 ;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list li:hover {
+  background: #f2f6f9;
+  color: #5C9ACF;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list a:hover {
+  color: #5C9ACF;
+}
+.index-content{
+  height: auto;
+}
+section {
+  height: 600px;
+}
+.notice-content th {
+  padding: 0 80px 0 0;
+}
+/* tbody tr {
+	width: 1000px;
+	display: inline-block;
+} */
+tbody p {
+  display: inline-block;
+}
+tbody span {
+  /* float: left; */
+  height: 30px;
+  line-height: 30px;
+}
+tbody tr:nth-child(2),
+tbody tr:nth-child(3),
+tbody tr:nth-child(4),
+tbody tr:nth-child(5) {
+  height: 80px;
+}
+tbody td:nth-child(3) {
+  width: 260px;
+}
+tbody td:nth-child(4) {
+  width: 280px;
+}
+tbody td a {
+  display: inline-block;
+  width: 72px;
+  height: 30px;
+  border-radius: 1px;
+  color: #fff;
+}
+tbody .item1::before {
+  content: "\e926";
+  font-family: "icomoon";
+  font-style: normal;
+  font-size: 12px;
+  padding-right: 6px;
+}
+tbody .item2::before {
+  content: "\e99c";
+  font-family: "icomoon";
+  font-style: normal;
+  font-size: 12px;
+  padding-right: 6px;
+}
+tbody .item3::before {
+  content: "\e9ac";
+  font-family: "icomoon";
+  font-style: normal;
+  font-size: 12px;
+  padding-right: 6px;
+}
+tbody .exit,
+tbody .result,
+tbody .delete {
+  width: 72px;
+  height: 30px;
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+}
+tbody .exit {
+  background: #F37B1D;
+  border-color: #F37B1D;
+  color: #fff;
+}
+tbody .exit:hover {
+  background: #d4752a;
+}
+tbody .result {
+  background: #0E90D2;
+  border-color: #0E90D2;
+  color: #fff;
+}
+tbody .result:hover {
+  background: #189adc;
+  border-color: #189adc;
+}
+tbody .delete {
+  background: #DD514C;
+  border-color: #DD514C;
+  color: #fff;
+}
+tbody .delete:hover {
+  background: #e40700;
+  border-color: #e40700;
+}
+/* tbody td i {
+  font-family: "icomoon";
+  font-style: normal;
+} */
+
+/* 此处用于result.html样式 */
+.index-main ol em {
+  font-family: "icomoon";
+  font-style: normal;
+}
+.notice-content {
+	width: 1020px;
+	position: relative;
+}
+.votecontent {
+	width: 580px;
+
+} 
+.votenum {
+	width: 500px;
+	position: absolute;
+	left: 590px;
+	top: 10px;
+}
+.notice-content .item1 {
+	width: 580px;
+	height: 50px;
+}
+.notice-content .item1 li {
+	float: left;
+	width: 180px;
+	height: 50px;
+}
+.notice-content .item2 {
+	width: 580px;
+	height: 80px;
+}
+.notice-content .item2 li {
+	float: left;
+	width: 180px;
+	height: 80px;
+}
+.item2 li p {
+	display: inline-block;
+}
+.votenum li{
+	float: left;
+	width: 150px;
+	height: 50px;
+}

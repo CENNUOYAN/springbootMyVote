@@ -1,0 +1,61 @@
+/* 特定样式 sidebar*/
+.sidebar-list li:first-child{
+  background: #fff;
+  color: #5C9ACF !important;
+  border-left: 3px solid #fff !important;
+}
+.sidebar-list li:nth-child(2){
+  background: #f2f6f9;
+  color: #5b9bd1 ;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list li:hover {
+  background: #f2f6f9;
+  color: #5C9ACF;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list a:hover {
+  color: #5C9ACF;
+}
+/* 主区域导航栏 */
+.index-main .voting {
+  color: #999;
+}
+.index-main .voting::before {
+  content: "\ea51";
+  font-family: "icomoon";
+  font-size: 2px;
+  padding-right: 5px;
+}
+
+.index-content {
+  height: auto;
+}
+.notice-content tr {
+  display: inline-block;	
+}
+.notice-content td{
+  width: 300px;
+  height: 200px;
+  background: #181a1b;
+  display: inline-block;
+  border: 1px solid #eee;
+ 
+}
+.notice-content a{
+  width: 300px;
+  height: 200px;
+  display: inline-block;
+/*   background: #697882; */
+  padding:10px 10px;
+}
+.notice-content a p {
+	font-size: 20px;
+ //  margin: 0 auto;
+   color: #eee;
+}
+.notice-content a span {
+	color: #999;
+	font-size: 12px;
+}
+  

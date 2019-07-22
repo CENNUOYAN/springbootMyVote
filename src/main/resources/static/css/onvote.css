@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4sk78h');
+  src:  url('../fonts/icomoon.eot?4sk78h#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4sk78h') format('truetype'),
+    url('../fonts/icomoon.woff?4sk78h') format('woff'),
+    url('../fonts/icomoon.svg?4sk78h#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section {
+  height: auto;
+}
+ol em {
+  font-family: "icomoon";
+  font-style: normal;
+  font-size: 2px;
+}
+.sidebar-list li:first-child{
+  background: #fff;
+  color: #5C9ACF !important;
+  border-left: 3px solid #fff !important;
+}
+.sidebar-list li:nth-child(2){
+  background: #f2f6f9;
+  color: #5b9bd1 ;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list li:hover {
+  background: #f2f6f9;
+  color: #5C9ACF;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list a:hover {
+  color: #5C9ACF;
+}
+.index-content {
+  height: auto;
+}
+.vote-title span,
+.vote-start-time span,
+.vote-end-time span,
+.vote_item span {
+  width: 180px;
+  height: 20px;
+  text-align: center;
+  display: inline-block;
+
+  /* padding: 20px 0; */
+}
+input {
+  width: 700px;
+  height: 32px;
+  margin: 10px 0;
+  outline: none;
+}
+/* .vote-item {
+  width: 200px;
+  height: 20px;
+
+} */
+.vote-item span {
+  width: 180px;
+  height: 20px;
+}
+button {
+  width: 50px;
+  height: 28px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: linear-gradient(to right, #f7bd1a, #f88e67);
+}
+.btn1 {
+    margin-left: 225px;
+}
+button a {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  line-height: 28px;
+}
+
+
+input[type=date]::-webkit-inner-spin-button { visibility: hidden; }
+/* input[type=date]::-webkit-datetime-edit-fields-wrapper { display: none;}  */

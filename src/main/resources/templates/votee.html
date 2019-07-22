@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/vote.css">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+    	function voting() {
+    		/* var voteFirstitem = $("#item1").val(); 
+    		var voteSeconditem = $("#item2").val();
+    		var voteThirditem = $("#item3").val(); */
+    	/* 	var voteFirstitem = document.getElementById("item1").innerText;
+    		var voteSeconditem = document.getElementById("item2").innerText;
+    		var voteThirditem = document.getElementById("item3").innerText;
+    		console.log(voteFirstitem+voteSeconditem+voteThirditem); */
+    		var selectvalue=null;  
+    		var radio=document.getElementsByName("vote");
+            for(var i=0;i<radio.length;i++){
+                if(radio[i].checked==true) {
+
+                    selectvalue=radio[i].value;
+
+                    break;
+
+          		}
+            }
+            console.log(selectvalue);
+            var obj = {
+            	  selectvalue: selectvalue
+	      	  }
+	      	  $.ajax({
+	      		  type: 'post',
+	      		  url: '/submitvote',
+	      		  data: JSON.stringify(obj),
+	      		  dataType: 'json',
+	      		  contentType: "application/json;charset=utf-8",
+	      		  success: function(result){
+	      			  if(result==1){
+	      				alert("success");
+	      			  }
+	      		  },
+	      		  error: function (XMLHttpRequest, textStatus, errorThrown) {
+	  		            console.log('XMLHttpRequest:');
+	  		            console.log(XMLHttpRequest);
+	  		            alert('你已经投过票了！')
+	  		      }  
+	      	  })
+
+    	}
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>
+          <a href="voter">菜鸟评选</a>
+        </h1>
+      </div>
+      <div class="top-nav">
+        <ul>
+
+        </ul>
+      </div>
+    </header>
+    <section>
+      <div class="main">
+        <!-- 侧导航栏 -->
+        <div class="sidebar">
+          <div class="sidebar-title">
+            管理列表
+          </div>
+          <div class="sidebar-list">
+            <ul>
+              <li class="first-li">
+                <i></i>
+                <a href="voter">管理首页</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="govote">去投票</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="votedata">投票数据</a>
+              </li>
+              <li>
+                <span></span>
+                <a class="tubiao" href="votepersonal">账号管理</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 管理首页部分 -->
+        <div class="index-main">
+          <div class="index-title">
+            管理首页
+          </div>
+          <ol>
+            <li>
+              <i></i>
+              <a href="voter">管理首页</a>
+              <a class="voting" href="govote">进行投票</a>
+            </li>
+          </ol>
+          <div class="index-content">
+            <div class="notice">
+              进行投票
+            </div>
+            <div class="notice-content">
+              <table>
+                <tbody>
+                  <!-- <tr th:if="${votes}!=null" >
+                    <td>
+                      <span>标题:</span><span th:text="${votes.voteTitle}"></span>
+                    </td>
+                    <td>
+                      <span>时间:</span><span th:text="${votes.voteEtime}"></span>
+                    </td>
+                    <td>
+                      <form class="">
+                        <p>以投票</p>
+                        <div>
+                        	
+	                        <input type="radio" checked name="vote" th:value="${votes.voteFirstitem}">
+	                        <span id="item1"  th:text="${votes.voteFirstitem}"></span>
+                        </div>
+                      
+                      </form>
+                    </td>
+                  </tr> -->
+                  <tr>
+                  	已投票
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button type="button" name="button" class="btn1" onclick="voting()">确定</button>
+            <button type="button" name="button">
+              <a href="govote">返回</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

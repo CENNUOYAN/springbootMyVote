@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4sk78h');
+  src:  url('../fonts/icomoon.eot?4sk78h#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4sk78h') format('truetype'),
+    url('../fonts/icomoon.woff?4sk78h') format('woff'),
+    url('../fonts/icomoon.svg?4sk78h#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.index-main ol {
+  margin-top: 20px;
+  padding-bottom: 25px;
+}
+ol a {
+  color: #337ab7;
+}
+ol i::before {
+  content: "\e901";
+  font-family: "icomoon";
+  font-style: normal;
+  color: #697882;
+}
+.index-content {
+  background: #fff;
+  height: 208px;
+  border-radius: 8px;
+}
+.index-content .notice {
+  padding: 15px 0 15px 20px;
+  color: #32c5d2;
+  font-size: 18px;
+}
+.notice-content {
+  border-top: 1px solid #F2F5F8;
+  padding: 10px 40px;
+  color: #93a2a9;
+}
+.now-page {
+  color: #999;
+}
+

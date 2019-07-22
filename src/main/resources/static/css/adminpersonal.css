@@ -1,0 +1,72 @@
+.sidebar-list li:first-child{
+  background: #fff;
+  color: #5C9ACF !important;
+  border-left: 3px solid #fff !important;
+}
+.sidebar-list li:nth-child(5){
+  background: #f2f6f9;
+  color: #5b9bd1 ;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list li:hover {
+  background: #f2f6f9;
+  color: #5C9ACF;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list a:hover {
+  color: #5C9ACF;
+}
+
+ol em {
+  font-family: "icomoon";
+  font-style: normal;
+  font-size: 2px;
+}
+.index-content {
+  height: auto;
+}
+.username span,
+.password span,
+.sure-password span {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+
+  /* padding: 20px 0; */
+}
+input {
+  width: 700px;
+  height: 36px;
+  margin: 10px 0;
+  outline: none;
+}
+.notice-content span {
+  text-align: left;
+}
+button {
+  width: 50px;
+  height: 28px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+.btn1 {
+    margin-left: 143px;
+    background: linear-gradient(to right, #f7bd1a, #f88e67);
+}
+.btn2 {
+ 	background: #0e90d2; 
+}
+button a {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  line-height: 28px;
+}
+.notice-content .pass {
+	padding-left: 105px;
+	color: red;
+	font-size: 16px;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.model.dao.VoterHasVoteDao">
+  
+  <!-- 插入votedata -->
+  <insert id="insertVoterAndVote" useGeneratedKeys="true">
+        insert into voterhasvote(voterid, voteid) values(#{voterid},#{voteid})
+  </insert>
+  
+<!--   根据voterid查出所有voteid -->
+    <select id="selectVoteIdByVoterId" resultType="com.example.demo.model.bean.VoterHasVote">
+  	select * from voterhasvote where voterid=#{voterid}
+  	</select>
+  	
+  	<select id="findVoteIdByVoterId" resultType="com.example.demo.model.bean.VoterHasVote">
+  	select * from voterhasvote where voterid=#{id}
+  	</select>
+  	
+  	<delete id="deleteAllByVoterId">
+    	delete from voterhasvote where voterid = #{id}
+    </delete>
+      
+
+    
+</mapper>

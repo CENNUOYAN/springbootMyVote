@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4sk78h');
+  src:  url('../fonts/icomoon.eot?4sk78h#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4sk78h') format('truetype'),
+    url('../fonts/icomoon.woff?4sk78h') format('woff'),
+    url('../fonts/icomoon.svg?4sk78h#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main .btn2{
+  width: 100px;
+}
+.main a {
+  width: 100px;
+}

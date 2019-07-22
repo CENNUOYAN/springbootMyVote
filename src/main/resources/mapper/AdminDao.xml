@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.model.dao.AdminDao">
+  
+  <insert id="add" useGeneratedKeys="true" keyProperty="adminid">
+        insert into admin(adminname, adminpassword) values (#{adminname},#{adminpassword})
+  </insert>
+
+    
+    <!--      修改用户信息 -->
+	<update id="modifyAdmin">
+		update admin set adminpassword=#{adminpassword} where adminid=#{adminid}
+	</update>
+	  <!--查询所有用户名-->
+    <select id="findAllAdminName" resultType="com.example.demo.model.bean.Admin">
+        select * from admin
+    </select>
+    <select id="findAllAdminByName" resultType="com.example.demo.model.bean.Admin">
+        SELECT * from admin where adminname = #{adminname}
+    </select>
+	
+</mapper>

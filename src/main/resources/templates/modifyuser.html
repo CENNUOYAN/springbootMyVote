@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/adminpersonal.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script>
+    function modifyVoter(){
+		var surepassword = document.getElementById('surepassword').value;
+		var password = document.getElementById('password').value;
+		
+		/* 清空文本框内容 */
+		
+		document.getElementById('password').value='';
+		document.getElementById('surepassword').value='';
+		
+		if(password!=surepassword){
+			document.getElementById('not').style.display="block";
+		}
+		else{
+			var obj = {
+					password: password
+			}
+			$.ajax({
+				type: 'post',
+				data: JSON.stringify(obj),
+				url: '/adminmodifyuser',
+				dataType: 'json',
+				contentType: "application/json;charset=utf-8",
+				success: function (result) {
+		            if (result == 1) {
+		                console.log("success")
+		            }else if(result == 2){
+		                console.log("密码不能为空")
+		            }
+		          // response.sendRedict("add");
+		        },
+		        error: function (XMLHttpRequest, textStatus, errorThrown) {
+		            console.log('XMLHttpRequest:');
+		            console.log(XMLHttpRequest);
+		            alert('网络异常！尝试刷新网页解决问题')
+		        } 
+			});
+		}
+    }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>
+          <a href="admin">菜鸟评选</a>
+        </h1>
+      </div>
+      <div class="top-nav">
+        <ul>
+
+        </ul>
+      </div>
+    </header>
+    <section>
+      <div class="main">
+        <!-- 侧导航栏 -->
+        <div class="sidebar">
+          <div class="sidebar-title">
+            管理列表
+          </div>
+          <div class="sidebar-list">
+            <ul>
+              <li class="first-li">
+                <i></i>
+                <a href="admin">管理首页</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="adminuser">用户管理</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="allvotedata">投票数据</a>
+              </li>
+               
+              <li>
+                <i></i>
+                <a href="adminvote">管理投票</a>
+              </li>
+              <li>
+                <span></span>
+                <a class="tubiao" href="#">账号管理</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 管理首页部分 -->
+        <div class="index-main">
+          <div class="index-title">
+            修改资料
+          </div>
+          <ol>
+            <li>
+              <i></i>
+              <a href="admin">管理首页</a>
+              <em></em>
+              <a class="now-page" href="#">修改资料</a>
+            </li>
+          </ol>
+          <div class="index-content">
+            <div class="notice">
+              修改资料
+            </div>
+            <div class="notice-content">
+              <form class="form" action method="post" th:if="${user}!=null">
+                <div class="username">
+                  <span>用户名</span>
+                  <span th:text="${user.name}"></span>
+                </div>
+                <div class="password">
+                  <span>密码</span>
+                  <input type="password" class="input-data" id="password">
+                  <div class="pass" style="display:none">
+				      	用户名必须是6-10大写字母、小写字母和数字
+				  </div>
+                </div>
+                <div class="sure-password">
+                  <span>密码确认</span>
+                  <input type="password" name="" value="" id="surepassword">
+                  <div class="pass" style="display:none" id="not">
+				      	密码不一致
+				  </div>
+                </div>
+
+              </form>
+            </div>
+            <button type="button" name="button" class="btn1" onclick="modifyVoter()">保存</button>
+            <button type="button" name="button" class="btn2">
+              <a href="javascript:;">取消</a>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

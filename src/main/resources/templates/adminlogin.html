@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    	function login(){
+    		var adminname = document.getElementById('name').value;
+    		var adminpassword = document.getElementById('password').value;
+    		var obj = {
+    				adminname: adminname,
+    				adminpassword: adminpassword
+    		}
+    		$.ajax({
+    			type: 'post',
+    			async: false,//同步：意思是当有返回值以后才会进行后面的js程序。
+    			data: JSON.stringify(obj),
+    			url: '/adminlogin',
+    			dataType: 'json',
+    			contentType: "application/json;charset=utf-8",
+    		 	success: function (result) {
+    		 	/* 	System.out.println(result); */
+		            if (result==1) {
+		               window.location.href='admin';
+		            }
+		            else if(result==0){
+		            	window.location.href='adminlogin';
+		            }
+		          // response.sendRedict("add");
+		        },
+		        error: function (XMLHttpRequest, textStatus, errorThrown) {
+		            console.log('XMLHttpRequest:');
+		            console.log(XMLHttpRequest);
+		        } 
+    		});
+    		
+    	}
+    </script>
+  </head>
+  <body>
+    <!-- 头部 -->
+    <header>
+      <div class="inner w">
+        <div class="header-title">
+        	 投票吧
+        </div>
+        <p>管理员登陆</p>
+      </div>
+    </header>
+    <!-- 用户信息部分 -->
+    <div class="main w">
+      <form class="" action>
+        <input type="text" placeholder="用户名" name = "name" id="name">
+        <input type="password" placeholder="密码" name = "password" id="password">
+        <button type="button" name="button" onclick="login()" value="登录">
+          <a href="#">登录</a> 
+        </button>
+      </form>
+    </div>
+    <!-- footer部分 -->
+    <footer>
+      <span>没有账号？<a href="adminregist">立即注册</a></span>
+    </footer>
+  </body>
+</html>

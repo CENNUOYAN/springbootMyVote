@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #334054;
+}
+.w {
+  width: 520px;
+  margin: 0 auto;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.inner {
+  width: 520px;
+  height: 210px;
+  text-align: center;
+  /* background: pink; */
+  padding-top: 90px;
+}
+header .header-title {
+  color: #53D192;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+.inner p {
+  font-size: 12px;
+  color: #fff;
+}
+.main {
+  /* background: pink; */
+  height: 360px;
+}
+.main input {
+  margin: 0 auto;
+  display: block;
+  width: 480px;
+  height: 42px;
+  border-radius: 6px;
+  outline: none;
+  margin-bottom: 18px;
+  border: none;
+  padding-left: 5px;
+}
+/*button按钮用input框来写*/
+/* .main input:last-child {
+  color: #fff;
+  background: #53D192;
+  padding-left: 0px;   /*清除上面两个input框padding-left的影响
+} */
+/*直接用button标签来写*/
+.main button {
+  margin: 0 auto;
+  display: block;
+  width: 480px;
+  height: 42px;
+  border-radius: 6px;
+  outline: none;
+  background: #53D192;
+  border: none;
+}
+.main button a {
+  display: block;
+  width: 480px;
+  height: 42px;
+  line-height: 42px;
+}
+.main button a:hover {
+  background: #2b9660;
+  border-radius: 6px;
+}
+.main .checkbox {
+  width: 480px;
+  height: 42px;
+  margin: 0 auto;
+  display: block;
+}
+.checkbox input {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+}
+.checkbox label {
+  font-weight: 700;
+  color: #fff;
+}
+.checkbox label a{
+  color: #0e90d2;
+}
+label a:hover {
+  color: #337ab7;
+}
+footer span {
+  width: 160px;
+  height: 22px;
+  display: block;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+}
+span a {
+  /* text-align: center; */
+}

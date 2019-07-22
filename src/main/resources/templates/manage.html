@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/manage.css">
+    <style type="text/css">
+    	
+    </style>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+   	<script th:inline="javascript">
+  //Js 获取hidden的隐藏域
+
+ /*  function goResult(){
+	  var name1=$("input[id='name']").val();
+	  var aaa = document.getElementById('name1');
+		 // $("input[name='inputTest']").val()
+		  alert(name1);
+  } */
+  </script>
+	  <!--
+	  for(var i=0;i<voteId.size();i++){
+		  var vote 
+	  }
+	  var obj = {
+				voteId: voteId
+		}
+		$.ajax({
+			type: 'post',
+			traditional: true,
+			data: JSON.stringify(obj),
+			url: '/testresult',
+			dataType: 'json',
+			contentType: "application/json;charset=utf-8",
+			success: function (result) {
+				if(result==1){
+					console.log('success'); 
+				}
+	          // response.sendRedict("add");
+	        },
+	        error: function (XMLHttpRequest, textStatus, errorThrown) {
+	            console.log('XMLHttpRequest:');
+	            console.log(XMLHttpRequest);
+	            alert('网络异常！尝试刷新网页解决问题')
+	        } 
+		}); -->
+	
+   	
+   <!-- <script type="text/javascript">
+       
+      
+      $(document).ready(function(){  
+    	  var aaa = document.getElementById('data1').value;
+    	     // var aaa = $('#data1').val();
+  //  	      alert(aaa);
+    	  if(aaa===null){
+        	//  document.getElementById("vote-data1").style.display="block";
+        	 // document.getElementById("vote-data2").style.display="block";
+        	 // document.getElementById("vote-data3").style.display="block";
+    		  $('#vote-data1').hide();
+    		  $('#vote-data2').hide();
+    		  $('#vote-data3').hide();
+          }
+          else{
+        	  $('#vote-data1').show();
+    		  $('#vote-data2').show();
+    		  $('#vote-data3').show();
+          }
+    	}); 
+    </script>-->
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>
+          <a href="index">菜鸟评选</a>
+        </h1>
+      </div>
+      <div class="top-nav">
+        <ul>
+
+        </ul>
+      </div>
+    </header>
+    <section>
+      <div class="main">
+        <!-- 侧导航栏 -->
+        <div class="sidebar">
+          <div class="sidebar-title">
+            管理列表
+          </div>
+          <div class="sidebar-list">
+            <ul>
+              <li>
+                <i></i>
+                <a href="index">管理首页</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="onvote">新建投票</a>
+              </li>
+              
+              <!--  <li>
+                <i></i>
+                <a href="#">投票信息</a>
+              </li>-->
+              
+              <li>
+                <i></i>
+                <a href="#">管理投票</a>
+              </li>
+              <li>
+                <span></span>
+                <a class="tubiao" href="personal">账号管理</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 管理首页部分 -->
+        <div class="index-main">
+          <div class="index-title">
+            投票列表
+          </div>
+          <ol>
+            <li>
+              <i></i>
+              <a href="index">管理首页</a>
+            </li>
+          </ol>
+          <div class="index-content">
+            <div class="notice">
+              管理投票
+            </div>
+            <div class="notice-content">
+              <table>
+                <tbody>
+                  <tr>
+                    <th>编号</th>
+                    <th>标题</th>
+             <!--        <th>投票量</th> -->
+                    <th>时间</th>
+                    <th>操作</th>
+                  </tr>
+                  <tr th:if="${vote}!=null" th:each="vote1:${vote}">
+	                
+	                  <td>
+	                  	<p th:text="${vote1.voteId}" id="name1"></p>
+	                  </td>
+	                  <td>
+	                  	<p th:text="${vote1.voteTitle}"></p>
+	                  </td>
+	           <!--        <td>
+	                  	<p th:text="${vote1.voteNum}"></p>
+	                  </td> -->
+	                  <td>
+                      <span>创建时间:&nbsp&nbsp</span><p th:text="${vote1.voteStime}"></p><br />
+                      <span>结束时间:&nbsp&nbsp</span><p th:text="${vote1.voteEtime}"></p>
+                    </td>
+                    <td>
+                      <div class="exit">
+                        <!-- <i></i> -->
+                        <a class="item1" th:href="'exit?id='+${vote1.voteId}" >编辑</a>
+                      </div>
+                      <div class="result">
+                        <!-- <i> </i> -->
+                        <a class="item2" th:href="'result?id='+${vote1.voteId}">结果</a>
+                      </div>
+                      <div class="delete">
+                        <!-- <i> </i> -->
+                        <a class="item3" th:href="'delete?id='+${vote1.voteId}">删除</a>
+                      </div>
+                     <!--  <div class="delete">
+                      	<a class="item3" th:href="'modify?id='+${vote1.voteId}">高仿</a>
+                      </div> -->
+                    </td>
+                  </tr>
+	               
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+    	
+    </script>
+  </body>
+</html>

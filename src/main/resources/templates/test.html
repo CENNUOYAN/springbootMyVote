@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个HTML页面</title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+   		// request:${requestScope.message} 
+   		//$(function(){ 
+   		//	var value=document.getElementById("name").value;
+      	//	 alert(value);
+   		//	});
+   			 
+   		// document.getElementById("name").value=value;
+   		function reg(){
+			var name=document.getElementById("name").value;
+			//var password=document.getElementById("password").value;
+			var address=document.getElementById("address").value;
+			alert(name);
+			var obj={
+					name:name,
+					address:address
+			}
+			$.ajax({
+				type:"post",
+				url:"/testmodify",
+				data:JSON.stringify(obj),
+				dataType:'json',
+				 contentType: "application/json;charset=utf-8",
+				 success: function (result) {
+		            if (result == 1) {
+		                alert("修改成功");
+		            }
+		        },
+		        error: function (XMLHttpRequest, textStatus, errorThrown) {
+		            console.log('XMLHttpRequest:');
+		            console.log(XMLHttpRequest);
+		            alert('网络异常！尝试刷新网页解决问题')
+		        } 
+			});
+		}
+    </script>
+</head>
+<body>
+<h1>Hello Spring Boot!!!</h1>
+<div>
+   <!--  <input th:text="${say}" id="abc" type = "button" onClick="a()"/> -->
+    <input th:value="${say.name}" id="name"/>
+    <input th:value="${say.address}" id="address"/>
+   <!--  <p th:text="${say.name}" id="nam"/> -->
+   	<input type="button" onClick="reg()" value="修改" />
+</div>
+</body>
+</html>

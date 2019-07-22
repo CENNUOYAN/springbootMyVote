@@ -1,0 +1,72 @@
+/* 特定样式 sidebar*/
+.sidebar-list li:first-child{
+  background: #fff;
+  color: #5C9ACF !important;
+  border-left: 3px solid #fff !important;
+}
+.sidebar-list li:nth-child(2){
+  background: #f2f6f9;
+  color: #5b9bd1 ;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list li:hover {
+  background: #f2f6f9;
+  color: #5C9ACF;
+  border-left: 3px solid #5C9ACF !important;
+}
+.sidebar-list a:hover {
+  color: #5C9ACF;
+}
+/* 主区域导航栏 */
+.index-main .voting {
+  color: #999;
+}
+.index-main .voting::before {
+  content: "\ea51";
+  font-family: "icomoon";
+  font-size: 2px;
+  padding-right: 5px;
+}
+
+.index-main .index-content {
+  height: 390px;;
+  backgoround: #333;
+}
+/* .notice-content td{
+  width: 150px;
+  height: 150px;
+  background: pink;
+  display: inline-block;
+  border: 1px solid #fff;
+} */
+.notice-content tbody {
+	height: auto;
+}
+.notice-content td {
+  display: block;
+  width: 600px;
+  height: auto;
+  padding: 10px 0;
+}
+.notice-content td div {
+	padding: 10px 0;
+}
+button {
+  width: 50px;
+  height: 28px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: linear-gradient(to right, #f7bd1a, #f88e67);
+}
+.btn1 {
+    margin-left: 40px;
+}
+button a {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  line-height: 28px;
+}
+

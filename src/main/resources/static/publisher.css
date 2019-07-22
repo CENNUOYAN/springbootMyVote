@@ -1,0 +1,184 @@
+@charset "UTF-8";
+.containone{
+	width:200px;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	border:0;
+	background-color:#000;
+}
+.containtwo{
+	width:auto;
+	height:100%;
+	_width:100%;
+	position:absolute;
+	top:0px;
+	left:200px;
+	bottom:0;
+	right:0px;
+	background-color:#c0c0c0;
+}
+a{ -ms-user-select:none;
+	user-select:none;
+	list-style-type:none;
+	color:white;
+	
+}
+a:hover{
+	color:blue;
+}
+#a1{
+	position:absolute;
+	top:10px;
+	left:1px;
+	font-size:20px;
+	font-weight:bold;	
+}
+#a2{
+	
+	position:absolute;
+	top:60px;
+	left:1px;	
+}
+#a3{
+	position:absolute;
+	top:100px;
+	left:1px;	
+}
+#a4{
+	position:absolute;
+	top:140px;
+	left:1px;	
+}
+#a5{
+	position:absolute;
+	top:180px;
+	left:1px;	
+}
+.vote{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	
+}
+.v1{
+	color:#ffffff;
+	position:absolute;
+	left:1px;
+	top:0px;
+	width:100%;
+	background-color:#10c8ef;
+}
+.v2{
+	position:absolute;
+	left:0px;
+	top:20px;
+	width:100%;
+}
+.d1{
+	position:absolute;
+	left:0px;
+	top:2px;
+	width:20%;
+	/*border-style:solid;
+	border-color:#c0c0c0 #80ff80 #80ff80 #c0c0c0;*/
+}
+.d2{
+	position:absolute;
+	left:200px;
+	top:0px;
+	width:auto;
+	width:100%;
+	
+}
+.d2 input{
+	position:absolute;
+	left:20px;
+	top:0px;
+	width:300px;
+	height:20px;
+	/*border-style:solid;
+	border-color:#c0c0c0 #c0c0c0 #80ff80 #c0c0c0 ;*/
+}
+.v3{
+	position:absolute;
+	left:1px;
+	top:80px;
+}
+.v4{
+	position:absolute;
+	left:0px;
+	top:300px;
+}
+.v5{
+	position:absolute;
+	left:0px;
+	top:350px;
+}
+.select{
+	position:absolute;
+	left:10px;
+	top:10px;
+}
+.person{
+	position:relative;
+	left:10px;
+	top:10px;
+	
+}
+.person_title{
+	float:left;
+	position:absolute;
+	left:50%;
+	font-size:20px;
+	font-weight:bold;
+}
+.person_detail{
+	position:absolute;
+	left:41%;
+	top:80px;
+	font-size:16px;
+}
+.person_detail input{
+	margin:6px;
+	width:200px;
+	height:22px;
+}
+.person_detail button{
+	margin:6px;
+	position:absolute;
+	left:41%;
+	top:108px;
+}
+.person_end{
+	position:absolute;
+	left:30%;
+	top:100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

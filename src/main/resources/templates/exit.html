@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/onvote.css">
+    <link rel="stylesheet" href="css/exit.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+       <script type="text/javascript">
+      // var aaa = document.getElementById('date');
+      //var aaa = $('#date').val;
+      //var title = $('#title').val;
+
+      function modify(){
+    	  var voteTitle = document.getElementById('title').value;
+    	  var voteStime = document.getElementById('sdate').value;
+    	  var voteEtime = document.getElementById('edate').value;
+    	  var voteFirstitem = $('#item1').val();
+    	  var voteSeconditem = $('#item2').val();
+    	  var voteThirditem = $('#item3').val();
+    	  console.log(voteTitle);
+    	  console.log(voteStime);
+    	  console.log(voteEtime);
+    	  console.log(voteFirstitem);
+    	  console.log(voteSeconditem);
+    	  console.log(voteThirditem);
+    	  var obj = {
+    			  voteTitle: voteTitle,
+    			  voteStime: voteStime,
+    			  voteEtime: voteEtime,
+    			  voteFirstitem: voteFirstitem,
+    			  voteSeconditem: voteSeconditem,
+    			  voteThirditem: voteThirditem
+    	  }
+    	  $.ajax({
+    		  type: 'post',
+    		  url: '/modifyvote',
+    		  data: JSON.stringify(obj),
+    		  dataType: 'json',
+    		  contentType: "application/json;charset=utf-8",
+    		  success: function(result){
+    			 if(result==1){
+    				 console.log("success");
+    			 }
+    		  },
+    		  error: function (XMLHttpRequest, textStatus, errorThrown) {
+		            console.log('XMLHttpRequest:');
+		            console.log(XMLHttpRequest);
+		            alert('网络异常！尝试刷新网页解决问题')
+		      }  
+    	  })
+      }
+    </script> 
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>
+          <a href="index">菜鸟评选</a>
+        </h1>
+      </div>
+      <div class="top-nav">
+        <ul>
+
+        </ul>
+      </div>
+    </header>
+    <section>
+      <div class="main">
+        <!-- 侧导航栏 -->
+        <div class="sidebar">
+          <div class="sidebar-title">
+            管理列表
+          </div>
+          <div class="sidebar-list">
+            <ul>
+              <li>
+                <i></i>
+                <a href="index">管理首页</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="onvote">新建投票</a>
+              </li>
+              <li>
+                <i></i>
+                <a href="manage">管理投票</a>
+              </li>
+              <li>
+                <span></span>
+                <a class="tubiao" href="personal">账号管理</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 管理首页部分 -->
+        <div class="index-main">
+          <div class="index-title">
+            投票编辑
+          </div>
+          <ol>
+            <li>
+              <i></i>
+              <a href="index">管理首页</a>
+              <em></em>
+              <a href="manage">投票列表</a>
+              <em></em>
+              <a class="now-page" href="#">投票编辑</a>
+            </li>
+          </ol>
+          <div class="index-content"   th:if="${vote}!=null" th:each="vote1:${vote}">
+            <div class="notice">
+              基本设置
+            </div>
+            <div class="notice-content">
+              <form class="form" action method="post">
+                <div class="vote-title">
+                  <span>投票标题</span>
+                  <input type="text" th:value="${vote1.voteTitle}" id="title">
+                </div>
+                <div class="vote-start-time">
+                  <span>投票开始时间</span>
+                  <input type="date" class="input-data" id="sdate" th:value="${vote1.voteStime}">
+                </div>
+                <div class="vote-end-time">
+                  <span>投票结束时间</span>
+                  <input type="date" th:value="${vote1.voteEtime}" id="edate">
+                </div>
+                <div class="vote_item">
+                  <span>投票选项</span>
+                  <ul>
+                    <li>
+                      <span>1</span>
+                      <input type="text" id="item1" class="input" th:value="${vote1.voteFirstitem}">
+                    </li>
+                    <li>
+                      <span>2</span>
+                      <input type="text" id="item2" class="input" th:value="${vote1.voteSeconditem}">
+                    </li>
+                    <li id="ip">
+                      <span>3</span>
+                      <input type="text" id="item3" class="input" th:value="${vote1.voteThirditem}">
+                    </li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+            <button type="button" name="button" class="btn1" onclick="modify()">
+              结果
+            </button>
+            <button type="button" name="button" class="btn2">
+              <a href="manage">返回投票列表</a>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

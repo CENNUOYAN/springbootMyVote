@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.model.dao.UserDao">
+  <select id="find" resultType="com.example.demo.model.bean.User">
+    <!--  SELECT id, name, password, address from user where name = #{name} and password = #{password}-->
+    SELECT id, name, password from user where name = #{name} and password = #{password}
+  </select>
+  <select id="find1" resultType="com.example.demo.model.bean.User">
+    SELECT address from user where name = #{name} and password = #{password}
+  </select>
+  <select id="findId" resultType="int">
+    SELECT id from user where name = #{name}
+  </select>
+  <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        <!-- insert into user(name, password,address) values (#{name},#{password},#{address}) -->
+        insert into user(name, password) values (#{name},#{password})
+  </insert>
+   <!--查询所有用户名-->
+    <select id="findAllUserName" resultType="com.example.demo.model.bean.User">
+        select * from user
+    </select>
+    <update id="update" >
+    	update user set address=#{address} where name=#{name}
+    </update>
+
+  <select id="findOne" resultType="com.example.demo.model.bean.User">
+        select * from user
+      	<where>
+     	 <!-- 重复说一下，id 不能是 int，int 默认是 0，不可能是 null, 而 Integer 可以是 null-->
+          <if test="id!=null">  
+              id=#{id}
+          </if>
+          <if test="name!=null">
+              and name=#{name}
+          </if>
+      </where>
+    </select>
+<!--      <resultMap type="com.example.demo.model.bean.User" id="voteMap">
+         <id property="id" column="id"/>
+         <result property="name" column="name"/>
+         <result property="password" column="password"/>
+         <collection property="votes" ofType="com.example.demo.model.bean.Vote">
+             <id property="id" column="vote_id"/>
+             <result property="title" column="vote_title"/>
+             <result property="stime" column="vote_stime"/>
+             <result property="etime" column="vote_etime"/>
+             <result property="firstitem" column=" vote_firstitem"/>
+             <result property="seconditem" column="vote_seconditem"/>
+             <result property="thirditem" column="vote_thirditem"/>
+         </collection>
+     </resultMap> -->
+     <!--根据id查询所有的投票  -->
+     <select id="selectVoteById" parameterType="int" resultType="com.example.demo.model.bean.Vote">
+   <!--   select * from user a,vote b where a.id=b.uid and a.id=#{id}; -->
+     	select *  from vote where vote_uid=#{id};   
+     </select>
+     
+<!--      修改用户信息 -->
+	<update id="modifyUser">
+		update user set password=#{password} where id=#{id}
+	</update>
+	
+<!-- 根据id删除发布者  -->
+	<delete id="deleteUser">
+		delete from user where id=#{id}
+	</delete>
+	<select id="selectUserById" resultType="com.example.demo.model.bean.User">
+		select * from user where id=#{id}
+	</select>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.model.dao.VoterDao">
+  
+  <insert id="add" useGeneratedKeys="true" keyProperty="voterId">
+        insert into voter(voter_name, voter_password) values (#{voterName},#{voterPassword})
+  </insert>
+  
+  <!--查询所有用户名-->
+    <select id="findAllVoterName" resultType="com.example.demo.model.bean.Voter">
+        select * from voter
+    </select>
+    <select id="findAllVoter" resultType="com.example.demo.model.bean.Voter">
+        SELECT voter_id, voter_name, voter_password from voter where voter_name = #{voterName}
+    </select>
+  <!--   <select id="findAllVote" resultType="com.example.demo.model.bean.Voter">
+        SELECT * from voter where voter_name = #{voterName} and voter_password = #{voterPassword}
+    </select> -->
+    
+    <!--      修改用户信息 -->
+	<update id="modifyVoter">
+		update voter set voter_password=#{voterPassword} where voter_id=#{voterId}
+	</update>
+	<delete id="deleteVoter">
+		delete from voter where voter_id=#{voterId}
+	</delete>
+	
+	<select id="selectVoterById" resultType="com.example.demo.model.bean.Voter">
+		select * from voter where voter_id = #{voterId}
+	</select>
+	
+</mapper>

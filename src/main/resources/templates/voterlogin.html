@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    	function login(){
+    		var voterName = document.getElementById('name').value;
+    		var voterPassword = document.getElementById('password').value;
+    		var obj = {
+    				voterName: voterName,
+    				voterPassword: voterPassword
+    		}
+    		$.ajax({
+    			type: 'post',
+    			async: false,//同步：意思是当有返回值以后才会进行后面的js程序。
+    			data: JSON.stringify(obj),
+    			url: '/voterlogin',
+    			dataType: 'json',
+    			contentType: "application/json;charset=utf-8",
+    		 	success: function (result) {
+		            if (result==1) {
+		               window.location.href='voter';
+		            }
+		            else if(result==0){
+		            	document.getElementById('password').value = "";
+		            	var span =  document.getElementById('span');
+		    			span.style.display = "block";
+		            }
+		        },
+		        error: function (XMLHttpRequest, textStatus, errorThrown) {
+		            console.log('XMLHttpRequest:');
+		            console.log(XMLHttpRequest);
+		        } 
+    		});
+    		
+    	}
+    </script>
+  </head>
+  <body>
+    <!-- 头部 -->
+    <header>
+      <div class="inner w">
+        <div class="header-title">
+        	 投票吧
+        </div>
+        <p>投票者登陆</p>
+      </div>
+    </header>
+    <!-- 用户信息部分 -->
+    <div class="main w">
+      <form class="" action>
+        <input type="text" placeholder="用户名" name = "name" id="name">
+        <input type="password" placeholder="密码" name = "password" id="password">
+        <button type="button" name="button" onclick="login()" value="登录">
+          <a href="#">登录</a> 
+        </button>
+        <span id = "span" style="display:none;color:red;margin:5px 0px 5px 18px;">用户名或密码输入错误！</span>
+      </form>
+    </div>
+    <!-- footer部分 -->
+    <footer>
+      <span>没有账号？<a href="voterregist">立即注册</a></span>
+    </footer>
+  </body>
+</html>
